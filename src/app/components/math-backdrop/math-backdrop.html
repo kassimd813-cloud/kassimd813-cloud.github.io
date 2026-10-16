@@ -1,0 +1,313 @@
+<div
+  class="math-backdrop"
+  [class.math-backdrop--dark]="isDark()"
+  [class.math-backdrop--light]="!isDark()"
+  aria-hidden="true"
+>
+  @switch (variant()) {
+    @case ('hero') {
+      <svg class="hero-construction" viewBox="0 0 600 600">
+        <circle
+          cx="260"
+          cy="300"
+          r="170"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1"
+          vector-effect="non-scaling-stroke"
+        />
+        <circle
+          cx="400"
+          cy="300"
+          r="170"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1"
+          stroke-dasharray="2 5"
+          vector-effect="non-scaling-stroke"
+        />
+        <line
+          x1="40"
+          y1="300"
+          x2="600"
+          y2="300"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1"
+          vector-effect="non-scaling-stroke"
+        />
+        <line
+          x1="330"
+          y1="80"
+          x2="330"
+          y2="540"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1"
+          vector-effect="non-scaling-stroke"
+        />
+        <path
+          d="M260 300 L330 147 L400 300 Z"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.2"
+          vector-effect="non-scaling-stroke"
+        />
+        <path
+          d="M318 300 v-12 h12"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1"
+          vector-effect="non-scaling-stroke"
+        />
+        <circle cx="260" cy="300" r="3" fill="currentColor" />
+        <circle cx="400" cy="300" r="3" fill="currentColor" />
+        <circle cx="330" cy="147" r="3" fill="currentColor" />
+        <circle cx="330" cy="453" r="3" fill="currentColor" />
+        <text x="244" y="322" font-size="15" fill="currentColor" font-family="Fraunces, serif" font-style="italic">
+          A
+        </text>
+        <text x="404" y="322" font-size="15" fill="currentColor" font-family="Fraunces, serif" font-style="italic">
+          B
+        </text>
+        <text x="338" y="140" font-size="15" fill="currentColor" font-family="Fraunces, serif" font-style="italic">
+          C
+        </text>
+      </svg>
+
+      <svg class="hero-sine" viewBox="0 0 1200 200" preserveAspectRatio="none">
+        <path
+          [attr.d]="sinePath"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.2"
+          vector-effect="non-scaling-stroke"
+        />
+        <path
+          d="M0 100 H1200"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="0.8"
+          stroke-dasharray="1 6"
+          vector-effect="non-scaling-stroke"
+        />
+      </svg>
+
+      <svg class="hero-label" viewBox="0 0 300 120">
+        <text x="0" y="40" font-size="18" fill="currentColor" font-family="Fraunces, serif" font-style="italic">
+          f(x) = sin x
+        </text>
+        <text
+          x="0"
+          y="70"
+          font-size="11"
+          fill="currentColor"
+          font-family="JetBrains Mono, monospace"
+        >
+          period 2π · amplitude 1
+        </text>
+      </svg>
+    }
+
+    @case ('experience') {
+      <svg class="exp-circles" viewBox="0 0 500 500">
+        @for (r of experienceRadii; track r) {
+          <circle
+            cx="250"
+            cy="250"
+            [attr.r]="r"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            [attr.stroke-dasharray]="r === 160 ? '2 6' : null"
+            vector-effect="non-scaling-stroke"
+          />
+        }
+        <line
+          x1="250"
+          y1="250"
+          x2="460"
+          y2="140"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1"
+          vector-effect="non-scaling-stroke"
+        />
+        <line
+          x1="250"
+          y1="250"
+          x2="460"
+          y2="250"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1"
+          vector-effect="non-scaling-stroke"
+        />
+        <path
+          d="M330 250 A80 80 0 0 0 321 213"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.4"
+          vector-effect="non-scaling-stroke"
+        />
+        <text x="338" y="236" font-size="16" fill="currentColor" font-family="Fraunces, serif" font-style="italic">
+          θ
+        </text>
+        <text x="300" y="470" font-size="14" fill="currentColor" font-family="Fraunces, serif" font-style="italic">
+          x² + y² = r²
+        </text>
+      </svg>
+
+      <svg class="exp-curve" viewBox="0 0 400 300">
+        <path
+          d="M20 280 C 120 270, 200 200, 380 20"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.2"
+          vector-effect="non-scaling-stroke"
+        />
+        @for (x of experienceCurveXs; track x; let i = $index) {
+          <circle
+            [attr.cx]="x"
+            [attr.cy]="278 - experienceCurveYs[i]"
+            r="3"
+            fill="currentColor"
+          />
+        }
+        <text x="30" y="40" font-size="15" fill="currentColor" font-family="Fraunces, serif" font-style="italic">
+          y = eˣ
+        </text>
+      </svg>
+    }
+
+    @case ('approach') {
+      <svg class="approach-spiral" viewBox="0 0 377 233">
+        <rect
+          x="0"
+          y="0"
+          width="233"
+          height="233"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1"
+          vector-effect="non-scaling-stroke"
+        />
+        <rect
+          x="233"
+          y="0"
+          width="144"
+          height="144"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1"
+          vector-effect="non-scaling-stroke"
+        />
+        <rect
+          x="288"
+          y="144"
+          width="89"
+          height="89"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1"
+          vector-effect="non-scaling-stroke"
+        />
+        <rect
+          x="233"
+          y="178"
+          width="55"
+          height="55"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1"
+          vector-effect="non-scaling-stroke"
+        />
+        <rect
+          x="233"
+          y="144"
+          width="34"
+          height="34"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1"
+          vector-effect="non-scaling-stroke"
+        />
+        <path
+          d="M0 233 A233 233 0 0 1 233 0 A144 144 0 0 1 377 144 A89 89 0 0 1 288 233 A55 55 0 0 1 233 178 A34 34 0 0 1 267 144"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.4"
+          vector-effect="non-scaling-stroke"
+        />
+        <text x="14" y="24" font-size="11" fill="currentColor" font-family="JetBrains Mono, monospace">
+          φ = (1+√5)/2
+        </text>
+      </svg>
+
+      <svg class="approach-label" viewBox="0 0 300 120">
+        <text x="0" y="40" font-size="13" fill="currentColor" font-family="JetBrains Mono, monospace">
+          {{ fibonacci.join(', ') }}, …
+        </text>
+        <text x="0" y="74" font-size="18" fill="currentColor" font-family="Fraunces, serif" font-style="italic">
+          Fₙ = Fₙ₋₁ + Fₙ₋₂
+        </text>
+      </svg>
+    }
+
+    @case ('contact') {
+      <svg class="contact-unit" viewBox="0 0 400 400">
+        <circle
+          cx="200"
+          cy="200"
+          r="150"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1"
+          vector-effect="non-scaling-stroke"
+        />
+        <circle
+          cx="200"
+          cy="200"
+          r="100"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1"
+          stroke-dasharray="2 6"
+          vector-effect="non-scaling-stroke"
+        />
+        <path
+          d="M40 200 H360 M200 40 V360"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1"
+          vector-effect="non-scaling-stroke"
+        />
+        <line
+          x1="200"
+          y1="200"
+          x2="306"
+          y2="94"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.2"
+          vector-effect="non-scaling-stroke"
+        />
+        <path
+          d="M306 94 V200"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1"
+          stroke-dasharray="3 4"
+          vector-effect="non-scaling-stroke"
+        />
+        <circle cx="306" cy="94" r="3.5" fill="var(--gold)" />
+        <text x="314" y="86" font-size="14" fill="currentColor" font-family="Fraunces, serif" font-style="italic">
+          (cos θ, sin θ)
+        </text>
+        <text x="210" y="380" font-size="11" fill="currentColor" font-family="JetBrains Mono, monospace">
+          π/4
+        </text>
+      </svg>
+    }
+  }
+</div>

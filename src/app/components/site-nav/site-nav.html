@@ -1,0 +1,37 @@
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="#top" class="brand" (click)="closeMobile()">
+      <span class="brand__mark" aria-hidden="true">K</span>
+      <span class="brand__text">
+        <span class="brand__name">Olutomi Kassim</span>
+        <span class="brand__role">mathematics educator</span>
+      </span>
+    </a>
+
+    <nav aria-label="Main" class="nav-desktop">
+      @for (item of nav; track item[1]) {
+        <a [href]="item[1]" class="nav-desktop__link">{{ item[0] }}</a>
+      }
+      <a href="#contact" class="nav-desktop__cta">Get in touch</a>
+    </nav>
+
+    <button
+      type="button"
+      class="nav-toggle"
+      [attr.aria-expanded]="mobileOpen()"
+      aria-controls="mnav"
+      (click)="toggleMobile()"
+    >
+      {{ mobileOpen() ? 'close ×' : 'menu ≡' }}
+    </button>
+  </div>
+
+  @if (mobileOpen()) {
+    <nav id="mnav" aria-label="Mobile" class="nav-mobile">
+      @for (item of nav; track item[1]) {
+        <a [href]="item[1]" class="nav-mobile__link" (click)="closeMobile()">{{ item[0] }}</a>
+      }
+      <a href="#contact" class="nav-mobile__link" (click)="closeMobile()">Contact</a>
+    </nav>
+  }
+</header>

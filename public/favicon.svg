@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Olutomi Kassim">
+  <!-- Matches navbar brand mark: ink circle + italic gold K -->
+  <circle cx="16" cy="16" r="16" fill="oklch(0.22 0.05 262)" />
+  <text
+    x="16"
+    y="17"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    fill="oklch(0.78 0.14 78)"
+    font-family="Fraunces, Georgia, 'Times New Roman', serif"
+    font-style="italic"
+    font-size="18"
+    font-weight="400"
+  >K</text>
+</svg>

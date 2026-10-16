@@ -1,0 +1,395 @@
+<div class="page">
+  <app-site-nav />
+
+  <main>
+    <!-- Hero -->
+    <section id="top" class="hero">
+      <app-math-backdrop variant="hero" />
+      <div class="hero__grid">
+        <div class="fade-up">
+          <p class="hero__badge">
+            <span class="hero__badge-dot" aria-hidden="true"></span>
+            GET Mathematics Coordinator · Bothasig High
+          </p>
+          <h1 class="hero__title">
+            Olutomi <span class="hero__title-italic">Kassim</span>
+          </h1>
+          <p class="hero__lede">
+            Mathematics and Mathematical Literacy educator in Cape Town, teaching and tutoring
+            learners from Grade 8 to Grade 12 since 2010 — and a 2024 Capitec Grade 9 Mathematics
+            award winner.
+          </p>
+          <div class="hero__actions">
+            <a href="#contact" class="btn btn--primary">Get in touch</a>
+            <a href="#experience" class="btn btn--ghost">View experience →</a>
+          </div>
+          <dl class="hero__stats">
+            @for (stat of heroStats; track stat[1]) {
+              <div>
+                <dt class="sr-only">{{ stat[1] }}</dt>
+                <dd class="hero__stat-value">{{ stat[0] }}</dd>
+                <dd class="hero__stat-label">{{ stat[1] }}</dd>
+              </div>
+            }
+          </dl>
+        </div>
+
+        <figure
+          class="hero-diagram"
+          aria-label="Illustration: a parabola on a coordinate plane with a circle and inscribed triangle"
+        >
+          <div class="hero-diagram__frame">
+            <svg
+              viewBox="0 0 400 400"
+              class="graph-paper-dark hero-diagram__svg"
+              role="img"
+              aria-hidden="true"
+            >
+              <g stroke="currentColor" stroke-opacity="0.5" stroke-width="1">
+                <line x1="20" y1="230" x2="380" y2="230" />
+                <line x1="200" y1="20" x2="200" y2="380" />
+              </g>
+              <g
+                fill="currentColor"
+                fill-opacity="0.5"
+                font-family="JetBrains Mono"
+                font-size="10"
+              >
+                <text x="372" y="246">x</text>
+                <text x="208" y="30">y</text>
+                @for (t of axisTicks; track t) {
+                  <text [attr.x]="200 + t * 16 - 6" y="246">{{ t }}</text>
+                }
+              </g>
+              <polyline
+                [attr.points]="parabolaPoints"
+                fill="none"
+                stroke="var(--gold)"
+                stroke-width="2.5"
+                class="draw"
+              />
+              <circle cx="200" cy="278" r="3.5" fill="var(--gold)" />
+              <g
+                class="draw"
+                style="animation-delay: 0.6s"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.4"
+              >
+                <circle cx="290" cy="120" r="56" stroke-opacity="0.8" />
+                <polygon points="290,64 241.5,148 338.5,148" stroke-opacity="0.9" />
+                <line
+                  x1="290"
+                  y1="64"
+                  x2="290"
+                  y2="148"
+                  stroke-dasharray="3 4"
+                  stroke-opacity="0.5"
+                />
+              </g>
+              <g font-family="Fraunces" fill="currentColor">
+                <text x="36" y="70" font-size="20" font-style="italic">y = 0.09x² − 3</text>
+                <text
+                  x="36"
+                  y="96"
+                  font-size="12"
+                  fill-opacity="0.6"
+                  font-family="JetBrains Mono"
+                >
+                  vertex (0, −3)
+                </text>
+                <text x="252" y="196" font-size="14" font-style="italic" fill-opacity="0.85">
+                  A = ½·b·h
+                </text>
+                <text x="40" y="360" font-size="14" fill-opacity="0.7" font-style="italic">
+                  Δ = b² − 4ac
+                </text>
+              </g>
+              <g stroke="var(--gold)" stroke-width="1.2" fill="none" stroke-opacity="0.8">
+                <path d="M 278 148 v -10 h 10" />
+              </g>
+            </svg>
+          </div>
+          <figcaption class="hero-diagram__caption">fig. 1 — every graph tells a story</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="section-head">
+        <p class="section-kicker">
+          <span class="section-kicker__n">§1</span> — introduction
+        </p>
+        <h2 class="section-title">An educator shaped by classrooms across Cape Town.</h2>
+      </div>
+      <div class="about__grid">
+        <div class="about__copy">
+          <p>
+            Olutomi Adedotun Kassim has taught in Western Cape schools since 2010, beginning at
+            Simon Estes Music High School in Wynberg and moving through Focus College, where he
+            served as Head of Mathematics (GET) and Mathematical Literacy, and Sinenjongo High
+            School as a WCED educator.
+          </p>
+          <p>
+            Today he is the GET Mathematics Coordinator at Bothasig High School. Alongside school
+            teaching, he has directed academic affairs at the Rainbow Dream Trust in Hout Bay since
+            2011 and spent nearly a decade as a tutor and lesson coordinator with ASSET,
+            consolidating Grade 8 and 9 Mathematics.
+          </p>
+          <p>
+            He holds a PGCE in Mathematics and Life Sciences from MANCOSA and completed a short
+            course in Mathematics at Stellenbosch University in 2024. He is also an accredited
+            assessor and moderator.
+          </p>
+        </div>
+        <aside class="about__aside">
+          <p class="aside-label">Beyond the classroom</p>
+          <ul class="hobby-list">
+            @for (hobby of hobbies; track hobby) {
+              <li>
+                <span class="hobby-list__mark" aria-hidden="true">∈</span>
+                {{ hobby }}
+              </li>
+            }
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="section section--ink">
+      <app-math-backdrop variant="experience" />
+      <div class="section__inner">
+        <div class="section-head section-head--on-ink">
+          <p class="section-kicker section-kicker--on-ink">
+            <span class="section-kicker__gold">§2</span> — teaching experience
+          </p>
+          <h2 class="section-title">A career plotted point by point.</h2>
+        </div>
+        <ol class="timeline">
+          @for (job of experience; track job.place) {
+            <li class="timeline__item">
+              <span
+                class="timeline__dot"
+                [class.timeline__dot--current]="job.current"
+                aria-hidden="true"
+              ></span>
+              <p class="timeline__when">{{ job.when }}</p>
+              <h3 class="timeline__place">{{ job.place }}</h3>
+              <p class="timeline__role">{{ job.role }}</p>
+              <ul class="timeline__tags">
+                @for (item of job.items; track item) {
+                  <li>{{ item }}</li>
+                }
+              </ul>
+            </li>
+          }
+        </ol>
+      </div>
+    </section>
+
+    <!-- Subjects -->
+    <section id="subjects" class="section">
+      <div class="section-head">
+        <p class="section-kicker">
+          <span class="section-kicker__n">§3</span> — subjects &amp; expertise
+        </p>
+        <h2 class="section-title">What he teaches, and at which levels.</h2>
+      </div>
+      <div class="subjects-grid">
+        @for (subject of subjects; track subject.name; let i = $index) {
+          <article class="subject-card">
+            <div class="subject-card__top">
+              <svg
+                viewBox="0 0 64 64"
+                class="subject-glyph"
+                aria-hidden="true"
+              >
+                <path d="M4 56 H60 M8 60 V4" stroke="currentColor" stroke-opacity="0.25" fill="none" />
+                @switch (subject.glyph) {
+                  @case ('parabola') {
+                    <path
+                      d="M12 10 Q32 80 52 10"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                    />
+                  }
+                  @case ('bars') {
+                    <path
+                      d="M16 56 V40 M28 56 V28 M40 56 V34 M52 56 V16"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="5"
+                    />
+                  }
+                  @case ('hex') {
+                    <polygon
+                      points="32,10 51,21 51,43 32,54 13,43 13,21"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                    />
+                  }
+                  @case ('circle') {
+                    <circle
+                      cx="32"
+                      cy="32"
+                      r="20"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                    />
+                    <path
+                      d="M32 32 L52 32 A20 20 0 0 0 42 14.7 Z"
+                      fill="currentColor"
+                      fill-opacity="0.2"
+                      stroke="currentColor"
+                    />
+                  }
+                  @case ('line') {
+                    <path
+                      d="M12 50 L24 38 L34 42 L52 14"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                    />
+                  }
+                  @case ('triangle') {
+                    <polygon
+                      points="32,10 54,52 10,52"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                    />
+                  }
+                }
+              </svg>
+              <span class="subject-card__index">0{{ i + 1 }}</span>
+            </div>
+            <h3 class="subject-card__name">{{ subject.name }}</h3>
+            <p class="subject-card__level">{{ subject.level }}</p>
+          </article>
+        }
+      </div>
+    </section>
+
+    <!-- Approach -->
+    <section id="approach" class="section section--approach">
+      <app-math-backdrop variant="approach" />
+      <div class="section__inner">
+        <div class="section-head">
+          <p class="section-kicker">
+            <span class="section-kicker__n">§4</span> — approach
+          </p>
+          <h2 class="section-title">Clarity, patience and reasoning.</h2>
+        </div>
+        <ol class="approach-grid">
+          @for (step of approachSteps; track step[0]; let i = $index) {
+            <li class="approach-card">
+              <p class="approach-card__num">{{ roman[i] }}</p>
+              <h3 class="approach-card__title">{{ step[0] }}</h3>
+              <p class="approach-card__body">{{ step[1] }}</p>
+            </li>
+          }
+        </ol>
+        <p class="approach-note">
+          This outline reflects the coordination, tutoring and learner-support roles described in
+          his CV; a personal statement of teaching philosophy can be added here.
+        </p>
+      </div>
+    </section>
+
+    <!-- Qualifications -->
+    <section id="qualifications" class="section">
+      <div class="section-head">
+        <p class="section-kicker">
+          <span class="section-kicker__n">§5</span> — qualifications &amp; achievements
+        </p>
+        <h2 class="section-title">Recognised for results.</h2>
+      </div>
+
+      <div class="awards-grid">
+        @for (award of awards; track award.title; let i = $index) {
+          <article class="award-card" [class.award-card--featured]="i === 0">
+            <span class="award-card__year">{{ award.year }}</span>
+            <div>
+              <h3 class="award-card__title">{{ award.title }}</h3>
+              <p class="award-card__note">{{ award.note }}</p>
+            </div>
+          </article>
+        }
+      </div>
+
+      <div class="qual-columns">
+        <div>
+          <h3 class="aside-label">Education &amp; training</h3>
+          <ul class="detail-list">
+            @for (item of education; track item.title) {
+              <li>
+                <span class="detail-list__when">{{ item.when }}</span>
+                <span>
+                  <span class="detail-list__title">{{ item.title }}</span>
+                  <span class="detail-list__where">{{ item.where }}</span>
+                </span>
+              </li>
+            }
+          </ul>
+        </div>
+        <div>
+          <h3 class="aside-label">Professional bodies</h3>
+          <ul class="detail-list">
+            @for (body of bodies; track body[0]) {
+              <li>
+                <span class="detail-list__when">{{ body[2] }}</span>
+                <span>
+                  <span class="detail-list__title">{{ body[0] }}</span>
+                  <span class="detail-list__where">{{ body[1] }}</span>
+                </span>
+              </li>
+            }
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section section--ink section--contact">
+      <app-math-backdrop variant="contact" />
+      <div class="section__inner">
+        <p class="section-kicker section-kicker--on-ink">
+          <span class="section-kicker__gold">§6</span> — contact
+        </p>
+        <h2 class="contact__title">
+          Let's solve for <span class="contact__x">x</span> together.
+        </h2>
+        <p class="contact__lede">
+          Schools, parents and colleagues are welcome to get in touch about teaching, tutoring or
+          coordination.
+        </p>
+        <div class="contact__actions">
+          <a [href]="'mailto:' + email" class="btn btn--gold">Email {{ email }}</a>
+          <a [href]="phoneHref" class="btn btn--outline-light">Call {{ phoneDisplay }}</a>
+        </div>
+        <p class="contact__meta">
+          Based in Cape Town, Western Cape. References available on request.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p>
+        <span class="site-footer__name">Olutomi Adedotun Kassim</span> · Mathematics Educator
+      </p>
+      <nav aria-label="Footer" class="site-footer__nav">
+        @for (item of nav; track item[1]) {
+          <a [href]="item[1]">{{ item[0] }}</a>
+        }
+        <a [href]="'mailto:' + email">Email</a>
+      </nav>
+    </div>
+  </footer>
+</div>
